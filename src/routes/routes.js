@@ -14,6 +14,7 @@ import Contact from "../pages/Contact/Contact";
 import Orders from "../pages/Orders/Orders";
 import Profile from "../pages/Profile/Profile";
 import Search from "../pages/Search/Search";
+import NotFound from "../pages/NotFound/NotFound";
 
 export {
   Bio,
@@ -29,4 +30,5 @@ export {
   Orders,
   Profile,
   Search,
+  NotFound
 };
