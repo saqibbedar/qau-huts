@@ -1,7 +1,7 @@
 const Daniyal = () => {
   return (
     <div>
-      
+      Daniyal
     </div>
   )
 }

@@ -1,7 +1,7 @@
 const Bio = () => {
   return (
     <div>
-      
+      Bio
     </div>
   )
 }

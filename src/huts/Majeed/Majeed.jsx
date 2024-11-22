@@ -1,7 +1,7 @@
 const Majeed = () => {
   return (
     <div>
-      
+      Majeed
     </div>
   )
 }

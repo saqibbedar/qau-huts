@@ -1,7 +1,7 @@
 const Karachi = () => {
   return (
     <div>
-      
+      Karachi
     </div>
   )
 }

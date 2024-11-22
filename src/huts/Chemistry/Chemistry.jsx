@@ -1,7 +1,7 @@
 const Chemistry = () => {
   return (
     <div>
-      
+      Chemistry
     </div>
   )
 }
