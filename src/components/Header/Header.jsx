@@ -1,10 +1,12 @@
+import "./Header.css"
 import { IoBag, IoSearch } from "react-icons/io5";
-import { MdAccountCircle } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 import { SiHomeadvisor } from "react-icons/si";
 import { IoIosMenu, IoIosArrowDown } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { qau_black, qau_white, } from "../../assets/assets";
 
 const huts = ["Majeed", "Karachi", "Bio", "Social", "Chemistry", "Daniyal", "Hikmat"].sort();
 
@@ -38,90 +40,203 @@ const Header = () => {
 
   return (
     <>
-      {
-        screenWidth >= 640 ?
-          
-        <header className="hidden sm:flex items-center justify-between bg-sky-300 w-[85vw] m-auto">
-          <Link to={"/"} className="logo">QHUTS</Link>
-          <ul className="flex gap-4">
-            <li><Link to={"/"}>Home</Link></li>
-            <li><Link to={"/about"}>About</Link></li>
+      {screenWidth >= 640 ? (
+        <header className="hidden sm:flex items-center justify-between bg-white drop-shadow-sm py-5 px-8">
+          <Link
+            to={"/"}
+            className="flex flex-col items-center bg-[#ea002a] rounded py-[.3rem] px-[.3rem]"
+          >
+            <img src={qau_white} alt="Q-Huts Logo" className="h-7" />
+            <h1 className="text-sm font-[700] text-white">Q-HUTS</h1>
+          </Link>
+          <ul className="flex gap-5">
+            <li className="hover:text-[#ea002a]">
+              <Link className="font-semibold" to={"/"}>
+                Home
+              </Link>
+            </li>
+            <li className="hover:text-[#ea002a]">
+              <Link className="font-semibold" to={"/about"}>
+                About
+              </Link>
+            </li>
             <li className="cursor-pointer relative group">
-              <div className="flex items-center group">
-                <span>Huts</span>
-                <IoIosArrowDown className="group-hover:mt-1 transition-all"/>
+              <div className="flex gap-1 items-center group">
+                <span className="group-hover:text-[#ea002a] font-semibold">
+                  Huts
+                </span>
+                <IoIosArrowDown
+                  strokeWidth={11}
+                  className="mt-[2px] group-hover:mt-1 group-hover:text-[#ea002a] transition-all"
+                />
               </div>
-              <div id="overlay" className="absolute left-0 rounded-md overflow-hidden hidden group-hover:flex bg-transparent">
-                <div className="flex flex-col bg-red-100 rounded-md overflow-hidden">
-                  {
-                    huts.map((hut, index) => (
-                      <Link className="pl-3 pr-6 py-2 hover:bg-red-500" to={`huts/${hut}`} key={hut}>
-                        <span className="flex items-center gap-[.5rem]">
-                          <SiHomeadvisor />
-                          {hut}
-                        </span></Link>
-                    ))
-                  }
+              <div
+                id="overlay"
+                className="absolute left-0 rounded-md overflow-hidden hidden group-hover:flex bg-transparent pt-2 drop-shadow-sm"
+              >
+                <div className="flex flex-col bg-white rounded-md overflow-hidden">
+                  {huts.map((hut, index) => (
+                    <Link
+                      id="header-huts-menu"
+                      className="pl-3 pr-6 py-2 hover:bg-[#ea002a]"
+                      to={`huts/${hut}`}
+                      key={index}
+                    >
+                      <span className="flex items-center gap-[.5rem] font-semibold">
+                        <SiHomeadvisor />
+                        {hut}
+                      </span>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </li>
-            <li><Link to={"/contact"}>Contact</Link></li>
+            <li className="hover:text-[#ea002a]">
+              <Link to={"/contact"} className="font-semibold">
+                Contact
+              </Link>
+            </li>
           </ul>
 
           <ul className="flex gap-2">
-            <li title="Orders"><Link to={"/orders"}><IoBag/></Link></li>
-            <li title="Search"><Link to={"/search"}><IoSearch /></Link></li>
-            <li title="Login"><Link to={"/login"}><MdAccountCircle/></Link></li>
+            <li title="Orders">
+              <Link to={"/orders"}>
+                <IoBag className="h-6 w-6" />
+              </Link>
+            </li>
+            <li title="Search">
+              <Link to={"/search"}>
+                <IoSearch className="h-6 w-6" />
+              </Link>
+            </li>
+            <li title="Login">
+              <Link to={"/login"}>
+                <FaUser className="h-6 w-6" />
+              </Link>
+            </li>
           </ul>
         </header>
-        :
-        <header id="mobile-menu" className="relative flex items-center justify-between bg-sky-300 w-full px-4 sm:hidden">
-          <Link to={'/'}>Logo</Link>
-          <div onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)} className="cursor-pointer">
-            {
-              isOpenMobileMenu ? <RxCross2/> : <IoIosMenu />
-            }
+      ) : (
+        <header
+          id="mobile-menu"
+          className="flex items-center justify-between bg-white w-full px-4 sm:hidden p-4"
+        >
+          <Link
+            onClick={()=>setIsOpenMobileMenu(false)}
+            to={"/"}
+            className="flex flex-col items-center bg-[#ea002a] rounded py-[.3rem] px-[.3rem]"
+          >
+            <img src={qau_white} alt="Q-Huts Logo" className="h-7" />
+            <h1 className="text-sm font-[700] text-white">Q-HUTS</h1>
+          </Link>
+
+          <div
+            onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+            className="cursor-pointer "
+          >
+            {isOpenMobileMenu ? (
+              <RxCross2 title="CLOSE" className="h-8 w-8" />
+            ) : (
+              <IoIosMenu title="MENU" className="h-8 w-8" />
+            )}
           </div>
 
-          <div style={{ height: `calc(100vh - ${mobileHeaderHeight}px)`}} className={`bg-sky-500 absolute left-0 top-6 w-full overflow-y-auto ${isOpenMobileMenu ? "block": "hidden"}`}>
-            <ul className="flex flex-col">
+          {
+              isOpenMobileMenu &&
+            <div
+              style={{ height: `calc(100vh - ${mobileHeaderHeight}px)` }}
+              className={`bg-white absolute left-0 top-[85px] w-full overflow-y-auto`}
+            >
+              <ul className="flex flex-col gap-1 font-semibold">
+                <ul className="flex justify-between items-center bg-[#ea002a] text-white px-4 py-3 ">
+                  <li
+                    onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                    title="SEARCH"
+                    className=""
+                  >
+                    <Link to={"/search"} className="flex items-center gap-1 bg-white rounded-full text-black px-3 py-1">
+                      <IoSearch className="h-5 w-5" /> <span>Search</span>
+                    </Link>
+                  </li>
+                  <li className="flex gap-2">
+                    <div
+                      onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                      title="VIEW CART"
+                      className=""
+                    >
+                      <Link to={"/orders"}>
+                        <IoBag className="h-5 w-5" />
+                      </Link>
+                    </div>
+                    <div
+                      onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                      title="LOGIN"
+                      className=""
+                    >
+                      <Link to={"/login"}>
+                        <FaUser className="h-5 w-5" />
+                      </Link>
+                    </div>
+                  </li>
+                </ul>
 
-              <ul className="flex justify-between items-center bg-red-100 px-4 py-2 ">
-                <li onClick={()=>setIsOpenMobileMenu(!isOpenMobileMenu)} title="SEARCH"><Link to={"/search"} className="flex items-center gap-1"><IoSearch /> <span>Search</span></Link></li>
-                <li className="flex gap-1">
-                  <div onClick={()=>setIsOpenMobileMenu(!isOpenMobileMenu)} title="VIEW CART"><Link to={"/orders"}><IoBag/></Link></div>
-                  <div onClick={()=>setIsOpenMobileMenu(!isOpenMobileMenu)} title="LOGIN"><Link to={"/login"}><MdAccountCircle /></Link></div>
+                <li
+                  onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                  className="px-4 hover:text-[#ea002a] transition-all mt-2"
+                >
+                  <Link to={"/"}>Home</Link>
                 </li>
-              </ul>
-              
-              <li onClick={()=>setIsOpenMobileMenu(!isOpenMobileMenu)} className="px-4 hover:text-red-500 transition-all"><Link to={"/"}>Home</Link></li>
-              <li onClick={()=>setIsOpenMobileMenu(!isOpenMobileMenu)} className="px-4 hover:text-red-500 transition-all"><Link to={"/about"}>About</Link></li>
+                <li
+                  onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                  className="px-4 hover:text-[#ea002a] transition-all"
+                >
+                  <Link to={"/about"}>About</Link>
+                </li>
 
-              <li onClick={()=>setIsShowHuts(!isShowHuts)} className="cursor-pointer px-4">
-                <div className="flex items-center justify-between hover:text-red-500 transition-all">
-                  <span>Huts</span>
-                  <IoIosArrowDown className={`-rotate-90 transition-all ${isShowHuts && "rotate-0"}`}/>
-              </div>
-                <div className={`mt-1 flex-col gap-1 ${isShowHuts ? "flex" : "hidden"}`}>
-                  {
-                    huts.map((hut, index) => (
-                      <Link onClick={()=>setIsOpenMobileMenu(!isOpenMobileMenu)} className="pl-3 rounded-md hover:text-red-500" to={`huts/${hut}`} key={index}>
+                <li
+                  onClick={() => setIsShowHuts(!isShowHuts)}
+                  className="cursor-pointer px-4"
+                >
+                  <div className="flex items-center justify-between hover:text-[#ea002a] transition-all">
+                    <span>Huts</span>
+                    <IoIosArrowDown
+                      className={`-rotate-90 transition-all ${
+                        isShowHuts && "rotate-0"
+                      }`}
+                    />
+                  </div>
+                  <div
+                    className={`mt-1 flex-col gap-[.5rem] ${
+                      isShowHuts ? "flex" : "hidden"
+                    }`}
+                  >
+                    {huts.map((hut, index) => (
+                      <Link
+                        onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                        className="pl-3 rounded-md hover:text-[#ea002a]"
+                        to={`huts/${hut}`}
+                        key={index}
+                      >
                         <span className="flex items-center gap-1">
                           <SiHomeadvisor />
                           {hut}
-                        </span></Link>
-                    ))
-                  }
-                </div>
-              </li>
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </li>
 
-              <li onClick={()=>setIsOpenMobileMenu(!isOpenMobileMenu)} className="px-4 hover:text-red-500 transition-all"><Link to={"/contact"}>Contact</Link></li>
-            </ul>
-          </div>
-
+                <li
+                  onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                  className="px-4 hover:text-[#ea002a] transition-all"
+                >
+                  <Link to={"/contact"}>Contact</Link>
+                </li>
+              </ul>
+            </div>
+          }
         </header>
-      }
-
+      )}
     </>
   );
 };
