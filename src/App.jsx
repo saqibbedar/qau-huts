@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="routes">
+      <div className="routes w-full px-4 sm:w-[85vw] sm:m-auto sm:px-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
