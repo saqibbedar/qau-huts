@@ -1,15 +1,34 @@
-# Quaid-i-Azam University Islamabad Huts (QHUTS)
+<div align="center">
+    <img height="100" src="public/qau-hut.png" />
+<span><h1><a href="" target="_blank">Q-HUTS.</a> v1.0.0</h1></span>
 
-QHUTS is a full-stack MERN application designed to provide an online platform for the huts at Quaid-i-Azam University Islamabad to sell food. This project aims to give these huts the opportunity to reach a wider audience and streamline their order management process.
+<span>Quaid-i-Azam University Huts Food Delivery App</span>
 
-## Features
+<div align="center">
+    <img src="https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg" alt="Maintained status" />
+    <img src="https://img.shields.io/github/v/release/saqibbedar/qau-huts.svg" alt="Release badge" />
+  <img src="https://img.shields.io/github/stars/saqibbedar/qau-huts.svg" alt="GitHub stars" />
+   <img src="https://img.shields.io/github/forks/saqibbedar/qau-huts.svg" alt="GitHub forks" />
+  <img src="https://img.shields.io/github/issues/saqibbedar/qau-huts.svg" alt="GitHub issues" />
+</div>
+
+</div>
+
+</br>
+
+Q-HUTS is designed to provide an online platform for the huts at Quaid-i-Azam University Islamabad to sell food. This project aims to give these huts the opportunity to reach a wider audience and streamline their order management process.
+
+### Note:
+This project is under its initial stage, so each time new changes would be made. Contact [`Saqib Bedar`](https://www.linkedin.com/in/saqibbedar) for more details.
+
+<!-- ## Features
 
 - **User Registration and Authentication**: Users can create accounts and log in to place orders.
 - **Hut Listings**: Users can browse through a list of available huts.
 - **Menu Selection**: Each hut has its own menu that users can browse and select items from.
 - **Order Placement**: Users can place orders directly through the app.
 - **Order Management**: Huts receive order information and can manage the order status.
-- **Notifications**: Users receive updates on their order status.
+- **Notifications**: Users receive updates on their order status. -->
 
 <!-- ## Installation
 
@@ -37,10 +56,10 @@ QHUTS is a full-stack MERN application designed to provide an online platform fo
     ```bash
     npm run dev
     ``` -->
-## Contributing
+<!-- ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. -->
